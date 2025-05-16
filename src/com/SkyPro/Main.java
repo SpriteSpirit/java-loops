@@ -38,13 +38,10 @@ public class Main {
     В нашем месяце 31 день. В результате у вас должно вывестись от 4 до 5 сообщений с напоминаниями по разным датам.
 	 */
         int firstFriday = 5;
-        byte monthDay = 31;
+        int monthDay = 31;
 
-        for (byte i = 0; monthDay != 1; i++) {
-            monthDay -= 1;
-            if (monthDay % firstFriday == 0 && i != 0) {
-                System.out.println("Today is friday " + i + "th. It's necessary to prepare a report!");
-            }
+        for (int i = firstFriday; i <= monthDay; i += 7) {
+            System.out.println("Сегодня пятница, " + i + "-е число. Время готовить отчет.");
         }
         /*
         byte day = 0;
@@ -71,20 +68,18 @@ public class Main {
     1975
     2054
 	 */
-        int isYear = 2022;
-        int yearsBefore = isYear - 200;
-        int yearsAfter = isYear + 100;
-        byte appearCometYear = 79;
+        int nowYear = 2025;
+        int yearBefore = nowYear - 200;
+        int yearAfter = nowYear + 100;
+        int cometPeriod  = 79;
 
-        while (yearsBefore != yearsAfter) {
-            if (yearsBefore % appearCometYear == 0) {
-                System.out.println(yearsBefore);
-            } else if (yearsAfter % appearCometYear == 0){
-                System.out.println(yearsAfter);
+        int startYear = (yearBefore / cometPeriod) * cometPeriod;
+
+        for (int year = startYear; year < yearAfter; year += cometPeriod ) {
+            if (year > yearBefore) {
+                System.out.println(year);
             }
-            yearsBefore++;
         }
-
 
 
 
